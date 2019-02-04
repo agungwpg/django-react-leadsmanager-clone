@@ -3,17 +3,21 @@ import ReactDOM from "react-dom";
 import Header from "./layouts/Header";
 import Dashboard from "./leads/Dashboard";
 
+import { Provider } from "react-redux";
+import store from "../store";
 class App extends Component {
-  render() {
-    return (
-      <Fragment>
-        <Header />
-        <div className="container">
-          <Dashboard />
-        </div>
-      </Fragment>
-    );
-  }
+	render() {
+		return (
+			<Provider store={store}>
+				<Fragment>
+					<Header />
+					<div className="container">
+						<Dashboard />
+					</div>
+				</Fragment>
+			</Provider>
+		);
+	}
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
